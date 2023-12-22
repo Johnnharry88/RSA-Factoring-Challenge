@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+from sys import argv
+from math import sqrt
+
+
+def filered(file_name):
+    with open(file_name, "r", encoding="utf-8") as file:
+        fetch = file.readlines()
+    num_f = []
+    for x in fetch:
+        num_f.append(int(x))
+    return num_f
+
+
+def find_multiples(a):
+    for x in range(1, a):
+        if a == ((a // x) * x):
+            print("{} = {} * {}".format(a, a // x, x))
+            break
+
+
+def factor_fetch(xty):
+    for n in xty:
+        find_multiples(n)
+
+
+if len(argv) == 2:
+    factor_fetch(filered(argv[1]))
